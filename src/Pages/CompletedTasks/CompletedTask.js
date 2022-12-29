@@ -1,17 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import toast from 'react-hot-toast';
-import ConfirmationModal from '../ConfirmationModal/ConfirmationModal';
-// import Loading from '../Loading/Loading';
-
 
 const CompletedTask = ({ completedTask }) => {
    const { title, description, img } = completedTask;
-
-   const [deletingCompletedTask, setDeletingCompletedTask] = useState(null);
-
-   const closeModal = () => {
-      setDeletingCompletedTask(null);
-   };
 
    const handleDeleteTask = (completedTask) => {
       fetch(
@@ -35,12 +26,6 @@ const CompletedTask = ({ completedTask }) => {
    //    return <Loading></Loading>;
    // }
 
-
-
-
-
-
-
    return (
       <div>
          <div className="bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -50,7 +35,6 @@ const CompletedTask = ({ completedTask }) => {
                   <i className="fa-solid fa-trash-can text-red-500 font-light hover:font-semibold"></i>
                </a>
             </div>
-
 
             <div className="flex flex-col items-center pb-8">
                <img className="w-24 h-24 p-2 m-3 mt-0 rounded-full shadow-lg" src={img} alt={title} />
@@ -64,27 +48,10 @@ const CompletedTask = ({ completedTask }) => {
                      Mark as Not Complete
                   </a>
 
-                  {/* <a href="/" title='Add to Starred'
-                     className="inline-flex items-center px-4 py-2 text-md font-semibold text-center text-yellow-300 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">
-
-                     <i className="fa-regular fa-star"></i>
-                     <i className="fa-solid fa-star"></i>
-                  </a> */}
                </div>
 
             </div>
          </div>
-
-         {deletingCompletedTask && (
-            <ConfirmationModal
-               title={`Are you sure to delete this Reported Item?`}
-               message={`Deleting ${deletingCompletedTask.productName} cannot be undone.`}
-               successAction={handleDeleteTask}
-               successButtonName="Delete"
-               modalData={deletingCompletedTask}
-               closeModal={closeModal}
-            ></ConfirmationModal>
-         )}
 
       </div>
    );

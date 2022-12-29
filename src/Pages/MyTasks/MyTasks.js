@@ -25,7 +25,7 @@ const MyTasks = () => {
 
    return (
       <div className='text-center'>
-         <h2 className='text-2xl mt-10'> My Tasks <span className='font-bold'>({tasks?.length})</span>
+         <h2 className='text-[20px] mt-10 font-semibold'> My All Tasks <span className='font-semibold'>({tasks?.length})</span>
          </h2>
 
          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-12 w-[85%] mx-auto'>

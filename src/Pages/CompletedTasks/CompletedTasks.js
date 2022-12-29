@@ -7,13 +7,6 @@ import CompletedTask from './CompletedTask';
 
 const CompletedTasks = () => {
 
-   // const [deletingCompletedTask, setDeletingCompletedTask] = useState(null);
-
-   // const closeModal = () => {
-   //    setDeletingCompletedTask(null);
-   // };
-
-
    const {
       data: completedTasks = [],
       isLoading,

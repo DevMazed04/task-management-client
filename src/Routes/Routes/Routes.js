@@ -6,6 +6,7 @@ import MyTasks from "../../Pages/MyTasks/MyTasks";
 import CompletedTasks from "../../Pages/CompletedTasks/CompletedTasks";
 import StarredTasks from "../../Pages/StarredTasks/StarredTasks";
 import Page404 from "../../Pages/Page404/Page404";
+import UpdateTask from "../../Pages/UpdateTask/UpdateTask";
 
 export const router = createBrowserRouter([
    {
@@ -31,6 +32,12 @@ export const router = createBrowserRouter([
          {
             path: "/starred-tasks",
             element: <StarredTasks></StarredTasks>,
+         },
+         {
+            path: '/update-task/:id',
+            loader: ({ params }) => fetch(`http://localhost:5000/task/${params.id}`),
+            element:
+               <UpdateTask></UpdateTask>
          },
       ],
    },
