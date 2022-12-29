@@ -61,8 +61,8 @@ const AddTask = () => {
                .then(res => res.json())
                .then(result => {
                   console.log(result);
-                  toast.success(`${data.name} is added successfully`);
-                  navigate('/my-task')
+                  toast.success(`${data.name} task is added successfully`);
+                  navigate('/my-tasks')
                })
          })
    }
