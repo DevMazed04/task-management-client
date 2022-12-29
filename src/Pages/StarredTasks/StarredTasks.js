@@ -1,11 +1,11 @@
 import React from 'react'
 
-const CompletedTask = () => {
+const StarredTasks = () => {
    return (
       <div className='text-center'>
-         Completed Task
+         StarredTasks
       </div>
    )
 }
 
-export default CompletedTask
+export default StarredTasks

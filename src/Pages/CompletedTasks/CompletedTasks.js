@@ -1,11 +1,11 @@
 import React from 'react'
 
-const MyTask = () => {
+const CompletedTasks = () => {
    return (
       <div className='text-center'>
-         My Task
+         Completed Tasks
       </div>
    )
 }
 
-export default MyTask
+export default CompletedTasks
