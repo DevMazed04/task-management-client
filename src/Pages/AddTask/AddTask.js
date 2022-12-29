@@ -1,5 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -25,7 +24,7 @@ const AddTask = () => {
          .then(res => res.json())
          .then(imgData => {
             if (imgData.success) {
-               // console.log(imgData.data.url);
+               console.log(imgData.data.url);
             }
             const task = {
                // userEmail: user.email,
@@ -62,31 +61,29 @@ const AddTask = () => {
          <form onSubmit={handleSubmit(handleAddTask)} className="border bg-base-100 rounded-xl p-6 shadow-lg">
 
             <div className="form-control w-full mb-4">
-               <label className="label"> <span className="label-text font-semibold inline-block mb-2">Title</span></label>
+               <label className="label"> <span className="label-text font-semibold inline-block mb-2">Add Title</span></label>
 
                <input type="text"
                   {...register("name", {
                      required: "Name is Required"
                   })}
                   className="input input-bordered w-full rounded-lg shadow-sm border border-slate-400" />
-
                {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
             </div>
 
             <div className="form-control w-full mb-4">
-               <label className="label"> <span className="label-text font-semibold inline-block mb-2">Photo</span></label>
+               <label className="label"> <span className="label-text font-semibold inline-block mb-2">Add Photo</span></label>
 
                <input type="file"
                   {...register("image", {
                      required: "Photo is Required"
                   })}
                   className="input input-bordered w-full p-0 border border-slate-400 rounded-lg" />
-
                {errors.image && <p className='text-red-500'>{errors.image.message}</p>}
             </div>
 
             <div className="form-control w-full mb-5">
-               <label className="label"> <span className="inline-block label-text font-semibold mb-2">Details</span></label>
+               <label className="label"> <span className="inline-block label-text font-semibold mb-2">Add Details</span></label>
                <input type="text" {...register("description", {
                   required: "Description is Required"
                })}
@@ -102,7 +99,7 @@ const AddTask = () => {
                {errors.userEmail && <p className='text-red-500'>{errors.userEmail.message}</p>}
             </div> */}
 
-            <button type="submit" value="Submit" className="w-full text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Submit</button>
+            <button type="submit" value="Submit" className="w-full text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 uppercase">Submit</button>
          </form>
       </div>
    );
