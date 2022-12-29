@@ -1,8 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import ConfirmationModal from '../ConfirmationModal/ConfirmationModal';
+// import Loading from '../Loading/Loading';
+
 
 const CompletedTask = ({ completedTask }) => {
-
    const { title, description, img } = completedTask;
+
+   const [deletingCompletedTask, setDeletingCompletedTask] = useState(null);
+
+   const closeModal = () => {
+      setDeletingCompletedTask(null);
+   };
+
+   const handleDeleteTask = (completedTask) => {
+      fetch(
+         `https://recycle-hut-server.vercel.app/reported-items/${completedTask._id}`,
+         {
+            method: "DELETE",
+         }
+      )
+         .then((res) => res.json())
+         .then((data) => {
+            if (data.deletedCount > 0) {
+               // refetch();
+               toast.success(
+                  `${completedTask.title} is deleted from Completed Task`
+               );
+            }
+         });
+   };
+
+   // if (isLoading) {
+   //    return <Loading></Loading>;
+   // }
+
+
+
+
+
+
+
    return (
       <div>
          <div className="bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -36,6 +74,17 @@ const CompletedTask = ({ completedTask }) => {
 
             </div>
          </div>
+
+         {deletingCompletedTask && (
+            <ConfirmationModal
+               title={`Are you sure to delete this Reported Item?`}
+               message={`Deleting ${deletingCompletedTask.productName} cannot be undone.`}
+               successAction={handleDeleteTask}
+               successButtonName="Delete"
+               modalData={deletingCompletedTask}
+               closeModal={closeModal}
+            ></ConfirmationModal>
+         )}
 
       </div>
    );

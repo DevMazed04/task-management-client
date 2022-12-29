@@ -59,24 +59,26 @@ const MyTask = ({ myTask }) => {
           <span className="text-sm text-gray-500 dark:text-gray-400">{description}</span>
 
           <div className="flex mt-4 space-x-3 md:mt-6">
-            <a href="/" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-green-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
-              onClick={handleCompletedTask(myTask)}
-            >
-              Mark as Complete
-            </a>
 
-            <a href="/" title='Add to Starred'
+            <label
+              className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-green-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+              onClick={() => handleCompletedTask(myTask)}>
+              Mark as Complete
+            </label>
+
+            <label
+              title='Add to Starred'
               className="inline-flex items-center px-4 py-2 text-md font-semibold text-center text-yellow-300 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">
 
               <i className="fa-regular fa-star"></i>
               {/* <i className="fa-solid fa-star"></i> */}
-            </a>
+            </label>
           </div>
 
         </div>
       </div>
 
-    </div>
+    </div >
   );
 };
 
