@@ -157,13 +157,16 @@ const Register = () => {
               </button>
 
               <label className="label">
-                <p>
+                <p className="text-center">
                   <span className="text-[13px] text-center mr-2">
                     Already have an account?
                   </span>
                   <Link to="/login">
                     <span className="text-[13px] text-center text-primary">
-                      Please <span className="text-cyan-500 text-[13.5px] font-semibold hover:font-bold hover:text-[14px]">Log in</span>
+                      Please{" "}
+                      <span className="text-cyan-500 text-[13.5px] font-semibold hover:font-bold hover:text-[14px]">
+                        Log in
+                      </span>
                     </span>
                   </Link>
                 </p>

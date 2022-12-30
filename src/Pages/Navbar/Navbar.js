@@ -17,9 +17,9 @@ const Navbar = () => {
   return (
     <div>
       <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
-        <div className="container flex flex-wrap items-center justify-between mx-auto">
+        <div className="containe ml-3 lg:mx-5 flex flex-wrap items-center justify-between">
           <Link to="/" className="flex items-center">
-            <span className="text-[25px] mr-2 font-bold hidden md:block">
+            <span className="text-[25px] mr-2 font-bold hidden lg:block">
               <i className="fa-solid fa-list-check"></i>
             </span>
 
@@ -27,18 +27,31 @@ const Navbar = () => {
               Task Management
             </span>
           </Link>
-          <div className="flex md:order-2">
 
-
+          <div className="flex lg:order-2">
             {user?.uid ? (
               <>
-                <button type="submit" value="Submit" className="w-full text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-xl text-sm px-4 py-2 text-center mr-2 mb-2 hover:rounded-2xl"
-                  onClick={handlelogOut}> Log Out</button>
+                <button
+                  type="submit"
+                  value="Submit"
+                  className="w-full hidden lg:block text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-xl text-sm px-4 py-2 text-center mr-2 mb-2 hover:rounded-2xl"
+                  onClick={handlelogOut}
+                >
+                  {" "}
+                  Log Out
+                </button>
               </>
             ) : (
               <>
                 <Link to="/login">
-                  <button type="submit" value="Submit" className="w-full text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-xl text-sm px-4 py-2 text-center mr-2 mb-2 hover:rounded-2xl"> Log In</button>
+                  <button
+                    type="submit"
+                    value="Submit"
+                    className="hidden lg:block w-full text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-xl text-sm px-4 py-2 text-center mr-2 mb-2 hover:rounded-2xl"
+                  >
+                    {" "}
+                    Log In
+                  </button>
                 </Link>
               </>
             )}
@@ -46,7 +59,7 @@ const Navbar = () => {
             <button
               data-collapse-toggle="navbar-cta"
               type="button"
-              className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               aria-controls="navbar-cta"
               aria-expanded="false"
             >
@@ -66,24 +79,25 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
+
           <div
-            className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+            className="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1"
             id="navbar-cta"
           >
-            <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 lg:flex-row lg:space-x-8 lg:mt-0 lg:text-sm lg:font-medium lg:border-0 lg:bg-white dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-700">
               {/* <li>
-                        <Link
-                           to="/"
-                           className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                           aria-current="page"
-                        >
-                           Home
-                        </Link>
-                     </li> */}
+                <Link
+                  to="/"
+                  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded lg:bg-transparent lg:text-blue-700 lg:p-0 dark:text-white"
+                  aria-current="page"
+                >
+                  Home
+                </Link>
+              </li> */}
               <li>
                 <Link
                   to="/add-task"
-                  className="text-[16px] block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="text-[16px] block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Add Task
                 </Link>
@@ -91,7 +105,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/my-tasks"
-                  className="text-[16px] block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="text-[16px] block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   My Tasks
                 </Link>
@@ -99,7 +113,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/completed-tasks"
-                  className="text-[16px] block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="text-[16px] block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Completed Tasks
                 </Link>
@@ -108,11 +122,38 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/starred-tasks"
-                  className="text-[16px] block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="text-[16px] block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Starred Tasks
                 </Link>
               </li>
+
+              {user?.uid ? (
+                <>
+                  <button
+                    type="submit"
+                    value="Submit"
+                    className="lg:hidden text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-xl text-sm px-4 py-2 text-center mr-2 my-2.5 hover:rounded-2xl w-[40%] md:w-[15%]"
+                    onClick={handlelogOut}
+                  >
+                    {" "}
+                    Log Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login">
+                    <button
+                      type="submit"
+                      value="Submit"
+                      className="lg:hidden text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-xl text-sm px-4 py-2 text-center mr-2 my-2.5 hover:rounded-2xl w-[40%] md:w-[15%]"
+                    >
+                      {" "}
+                      Log In
+                    </button>
+                  </Link>
+                </>
+              )}
             </ul>
           </div>
         </div>
