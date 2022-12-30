@@ -84,7 +84,7 @@ const Login = () => {
 
   return (
     <div className="text-center flex flex-col h-[550px] justify-center items-center">
-      <h3 className="text-2xl text-center font-semibold text-cyan-600 mt-16">
+      <h3 className="text-[21px] text-center font-semibold text-cyan-600 mt-0">
         Login Here
       </h3>
       <div className="shadow-xl p-5 lg:p-6 rounded-2xl border mt-5">
