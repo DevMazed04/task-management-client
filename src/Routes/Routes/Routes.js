@@ -7,6 +7,8 @@ import CompletedTasks from "../../Pages/CompletedTasks/CompletedTasks";
 import StarredTasks from "../../Pages/StarredTasks/StarredTasks";
 import Page404 from "../../Pages/Page404/Page404";
 import UpdateTask from "../../Pages/UpdateTask/UpdateTask";
+import Login from "../../Pages/Login/Login";
+import Register from "../../Pages/Register/Register";
 
 export const router = createBrowserRouter([
    {
@@ -39,6 +41,14 @@ export const router = createBrowserRouter([
             element:
                <UpdateTask></UpdateTask>
          },
+         {
+            path: "/login",
+            element: <Login></Login>,
+         },
+         {
+            path: "/register",
+            element: <Register></Register>,
+         }
       ],
    },
 

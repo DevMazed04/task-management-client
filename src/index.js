@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import AuthProvider from './contexts/AuthProvider';
 import 'tw-elements';
 import 'flowbite';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import AuthProvider from './contexts/AuthProvider';
 
 const queryClient = new QueryClient();
 
@@ -15,9 +15,9 @@ root.render(
 
   // <React.StrictMode>
   <QueryClientProvider client={queryClient}>
-    {/* <AuthProvider> */}
-    <App />
-    {/* </AuthProvider> */}
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </QueryClientProvider>
   // </React.StrictMode>
 );
