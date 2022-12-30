@@ -46,17 +46,15 @@ const Login = () => {
 
         const name = user.displayName;
         const email = user.email;
-        const role = "buyer";
 
         const userInfo = {
           name: name,
           email: email,
-          role: role,
         };
 
         updateUser(userInfo)
           .then(() => {
-            saveUser(role, name, email);
+            saveUser(name, email);
           })
           .catch((err) => console.error(err));
       })
@@ -66,9 +64,9 @@ const Login = () => {
       });
   };
 
-  const saveUser = (role, name, email) => {
-    const user = { role, name, email };
-    fetch("https://recycle-hut-server.vercel.app/users", {
+  const saveUser = (name, email) => {
+    const user = { name, email };
+    fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -83,23 +81,28 @@ const Login = () => {
   };
 
   return (
-    <div className="text-center flex flex-col h-[550px] justify-center items-center">
+    <div className=" flex flex-col h-[550px] justify-center items-center">
       <h3 className="text-[21px] text-center font-semibold text-cyan-600 mt-0">
         Login Here
       </h3>
       <div className="shadow-xl p-5 lg:p-6 rounded-2xl border mt-5">
         <form onSubmit={handleSubmit(handleLogin)}>
-          <div className="form-control">
+          <div className="form-control w-full mb-3">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text font-normal inline-block mb-2">
+                Email
+              </span>
             </label>
+
             <input
               type="email"
-              className="input input-bordered w-full"
-              {...register("email", { required: "Please! Enter your email" })}
+              {...register("email", {
+                required: "Enter your email",
+              })}
+              className="input input-bordered w-full rounded-lg shadow-sm border border-slate-400"
             />
             {errors.email && (
-              <p className="text-error font-semibold text-start mt-2">
+              <p className="text-red-500 font-semibold text-start mt-2">
                 {errors.email?.message}
               </p>
             )}
@@ -107,55 +110,64 @@ const Login = () => {
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text  font-normal inline-block mb-2">
+                Password
+              </span>
             </label>
+
             <input
               type="password"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-lg shadow-sm border border-slate-400"
               {...register("password", {
-                required: "Please! Enter your password",
+                required: "Enter your password",
               })}
             />
             {errors.password && (
-              <p className="text-error font-semibold text-start mt-2">
+              <p className="text-red-500 font-semibold text-start mt-2">
                 {errors.password?.message}
               </p>
             )}
           </div>
 
-          <div className="form-control">
+          <div className="form-control mt-1">
             <label className="label">
               <span className="text-xs">Forget Password?</span>
             </label>
           </div>
-
           <div>
             {loginError && (
-              <p className="text-error font-semibold">{loginError}</p>
+              <p className="text-red-500 font-semibold">{loginError}</p>
             )}
           </div>
 
-          <div className="form-control mt-6">
+
+          <div className="form-control mt-3">
             <button
-              className="btn btn-accent bg-cyan-500 text-white"
               value="login"
-            >
+              className="w-full text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-4 py-2 text-center mr-2 uppercase">
               Login
             </button>
+
           </div>
-          <div className="divider">OR</div>
+          <div className="divider text-center text-[14px] font-semibold my-[6px]">OR</div>
+
           <div className="form-control">
-            <button
+            {/* <button
               className="btn btn-outline-accent"
-              onClick={handleGoogleSignIn}
-            >
-              GOOGLE
+              onClick={handleGoogleSignIn} >GOOGLE
+            </button> */}
+
+            <button onClick={handleGoogleSignIn} type="button" className="w-full uppercase text-white bg-slate-700 hover:bg-slate-800 font-medium rounded-lg text-sm px-5 py-2 text-center flex justify-center items-center mr-2 mb-2 border">
+              <svg className="mr-3 w-4 h-4" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                <path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path>
+              </svg>
+              <span> Log In with Google</span>
             </button>
           </div>
 
           <label className="label">
             <p>
-              <span className="text-xs text-center"> New to Recycle Hut? </span>
+              <span className="text-xs text-center">Don't have account? </span>
               <Link to="/register">
                 <span className="text-xs text-primary">Create new account</span>
               </Link>

@@ -72,7 +72,7 @@ const Register = () => {
           <form onSubmit={handleSubmit(handleRegister)}>
             <div className="form-control w-full mb-3">
               <label className="label">
-                <span className="label-text  font-normal inline-block mb-2">
+                <span className="label-text font-normal inline-block mb-2">
                   Name
                 </span>
               </label>
