@@ -30,14 +30,14 @@ const Register = () => {
         toast.success("Registration Successful");
 
         const userInfo = {
-          displayName: name
+          displayName: name,
         };
 
         updateUser(userInfo)
           .then(() => {
             saveUser(name, email);
           })
-          .catch((err) => console.error(err));
+          .catch((error) => console.error(error));
       })
 
       .catch((error) => {
@@ -64,51 +64,64 @@ const Register = () => {
 
   return (
     <div className="mb-16">
-      <div className="text-center flex flex-col h-[550px] justify-center items-center">
-        <h3 className="text-2xl text-center font-semibold text-cyan-600 mt-16">
-          Please Register
+      <div className="flex flex-col h-[550px] justify-center items-center">
+        <h3 className="text-[21px] text-center font-semibold text-cyan-600 mt-6">
+          Register Here
         </h3>
         <div className="shadow-xl p-5 lg:p-6 rounded-2xl border mt-5">
           <form onSubmit={handleSubmit(handleRegister)}>
-            <div className="form-control">
+            <div className="form-control w-full mb-3">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text  font-normal inline-block mb-2">
+                  Name
+                </span>
               </label>
+
               <input
                 type="text"
-                className="input input-bordered w-full"
-                {...register("name", { required: "Name is required" })}
+                {...register("name", {
+                  required: "Name is Required",
+                })}
+                className="input input-bordered w-full rounded-lg shadow-sm border border-slate-400"
               />
               {errors.name && (
-                <p className="text-error font-semibold text-start mt-2">
+                <p className="text-red-500 font-semibold text-start mt-2">
                   {errors.name?.message}
                 </p>
               )}
             </div>
 
-            <div className="form-control">
+            <div className="form-control w-full mb-3">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text font-normal inline-block mb-2">
+                  Email
+                </span>
               </label>
+
               <input
                 type="email"
-                className="input input-bordered w-full"
-                {...register("email", { required: "Email is required" })}
+                {...register("email", {
+                  required: "Email is Required",
+                })}
+                className="input input-bordered w-full rounded-lg shadow-sm border border-slate-400"
               />
               {errors.email && (
-                <p className="text-error font-semibold text-start mt-2">
+                <p className="text-red-500 font-semibold text-start mt-2">
                   {errors.email?.message}
                 </p>
               )}
             </div>
 
-            <div className="form-control">
+            <div className="form-control w-full mb-3">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text  font-normal inline-block mb-2">
+                  Password
+                </span>
               </label>
+
               <input
                 type="password"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full rounded-lg shadow-sm border border-slate-400"
                 {...register("password", {
                   required: "Password is required",
                   minLength: {
@@ -123,7 +136,7 @@ const Register = () => {
                 })}
               />
               {errors.password && (
-                <p className="text-error font-semibold text-start mt-2">
+                <p className="text-red-500 font-semibold text-start mt-2">
                   {errors.password?.message}
                 </p>
               )}
@@ -131,24 +144,27 @@ const Register = () => {
 
             <div>
               {signupError && (
-                <p className="text-error font-semibold">{signupError}</p>
+                <p className="text-red-500 font-semibold">{signupError}</p>
               )}
             </div>
 
-            <div className="form-control mt-6">
+            <div className="form-control mt-[23px]">
               <button
-                className="btn btn-accent bg-cyan-500 text-white"
                 value="register"
+                className="w-full text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-4 py-2 text-center mr-2 mb-2 uppercase"
               >
                 Register
               </button>
+
               <label className="label">
                 <p>
-                  <span className="text-xs text-center">
+                  <span className="text-[13px] text-center mr-2">
                     Already have an account?
                   </span>
                   <Link to="/login">
-                    <span className="text-xs text-primary"> Please Log in </span>
+                    <span className="text-[13px] text-center text-primary">
+                      Please <span className="text-cyan-500 text-[13.5px] font-semibold hover:font-bold hover:text-[14px]">Log in</span>
+                    </span>
                   </Link>
                 </p>
               </label>

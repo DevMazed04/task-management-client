@@ -25,10 +25,10 @@ const MyTasks = () => {
 
    return (
       <div className='text-center'>
-         <h2 className='text-[20px] mt-10 font-semibold'> My All Tasks <span className='font-semibold'>({tasks?.length})</span>
+         <h2 className='text-[21px] mb-6 text-center font-semibold text-cyan-600 mt-14'> My All Tasks <span className='font-semibold'>({tasks?.length})</span>
          </h2>
 
-         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-12 w-[85%] mx-auto'>
+         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 w-[85%] mx-auto'>
             {
                tasks.map(myTask =>
                   <MyTask
