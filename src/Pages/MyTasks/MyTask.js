@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const MyTask = ({ myTask }) => {
   const { _id, title, description, img } = myTask;
+  const { user, } = useContext(AuthContext);
 
   const handleCompletedTask = (myTask) => {
     saveCompletedTaskToDb(myTask);
@@ -58,7 +60,7 @@ const MyTask = ({ myTask }) => {
 
   return (
     <div>
-      <div className="bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <div className="bg-white border border-gray-200 rounded-[12px] shadow-2xl hover:mt-[-8px] dark:bg-gray-800 dark:border-gray-700">
         <div className="flex justify-end px-5 pt-5">
           <Link to={`/update-task/${_id}`}>
             <div title="Update">

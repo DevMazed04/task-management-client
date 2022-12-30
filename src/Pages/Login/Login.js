@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
@@ -10,13 +11,13 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
-  const { signIn, googleSignIn, updateUser } = useContext(AuthContext);
+  const { user, signIn, googleSignIn, updateUser } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/add-task";
 
   const handleLogin = (data) => {
     console.log(data);
@@ -76,14 +77,24 @@ const Login = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("save user", data);
-        navigate("/");
+        navigate("/add-task");
       });
   };
 
   return (
     <div className=" flex flex-col h-[550px] justify-center items-center">
       <h3 className="text-[21px] text-center font-semibold text-cyan-600 mt-6">
-        Login Here
+        {
+          user?.uid ? "Please Login" :
+            <>
+              <TypeAnimation
+                sequence={['Please! Login To Start..', 3000, '']}
+                speed={0}
+                wrapper="h2"
+                repeat={Infinity}
+              />
+            </>
+        }
       </h3>
       <div className="shadow-xl p-5 lg:p-6 rounded-2xl border mt-5">
         <form onSubmit={handleSubmit(handleLogin)}>

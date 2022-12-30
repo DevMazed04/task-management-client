@@ -16,7 +16,7 @@ const CompletedTask = ({ completedTask }) => {
             if (data.deletedCount > 0) {
                // refetch();
                toast.success(
-                  `${completedTask.title} is deleted from Completed Task`
+                  `${completedTask?.title} is deleted from Completed Task`
                );
             }
          });

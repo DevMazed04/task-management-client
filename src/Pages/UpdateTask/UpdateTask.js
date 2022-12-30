@@ -62,8 +62,8 @@ const UpdateTask = () => {
   };
 
   return (
-    <div className="lg:w-[33%] mx-auto p-10">
-      <h2 className="text-[20px] mb-5 text-center font-semibold">
+    <div className="lg:w-[33%] mx-auto p-10 pt-0">
+      <h2 className="text-[21px] mb-5 text-center font-semibold text-cyan-600 mt-14">
         Update Task
       </h2>
 

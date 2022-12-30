@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-// import { AuthContext } from '../../../contexts/AuthProvider';
+import { AuthContext } from "../../contexts/AuthProvider";
+
 
 const AddTask = () => {
   const {
@@ -10,7 +11,8 @@ const AddTask = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  // const { user } = useContext(AuthContext);
+
+  const { user } = useContext(AuthContext);
   const imageHostKey = process.env.REACT_APP_imgbb_key;
   const navigate = useNavigate();
 
@@ -30,8 +32,8 @@ const AddTask = () => {
           console.log(imgData.data.url);
         }
         const task = {
-          // userEmail: user.email,
-          img: imgData.data.url,
+          userEmail: user.email,
+          taskImg: imgData.data.url,
           title: data.name,
           description: data.description,
         };
@@ -69,7 +71,7 @@ const AddTask = () => {
       >
         <div className="form-control w-full mb-4">
           <label className="label">
-            {" "}
+
             <span className="label-text font-semibold inline-block mb-2">
               Add Title
             </span>
@@ -89,7 +91,7 @@ const AddTask = () => {
 
         <div className="form-control w-full mb-4">
           <label className="label">
-            {" "}
+
             <span className="label-text font-semibold inline-block mb-2">
               Add Photo
             </span>
@@ -109,7 +111,7 @@ const AddTask = () => {
 
         <div className="form-control w-full mb-5">
           <label className="label">
-            {" "}
+
             <span className="inline-block label-text font-semibold mb-2">
               Add Details
             </span>

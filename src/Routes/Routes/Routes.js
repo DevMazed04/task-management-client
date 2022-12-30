@@ -9,6 +9,8 @@ import Page404 from "../../Pages/Page404/Page404";
 import UpdateTask from "../../Pages/UpdateTask/UpdateTask";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import CompletedTask from "../../Pages/CompletedTasks/CompletedTask";
 
 export const router = createBrowserRouter([
    {
@@ -17,24 +19,39 @@ export const router = createBrowserRouter([
       children: [
          {
             path: "/",
-            element: <AddTask></AddTask>,
+            element:
+               <PrivateRoute>
+                  <AddTask></AddTask>
+               </PrivateRoute>,
          },
          {
             path: "/add-task",
-            element: <AddTask></AddTask>,
+            element:
+               <PrivateRoute>
+                  <AddTask></AddTask>
+               </PrivateRoute>,
          },
          {
             path: "/my-tasks",
-            element: <MyTasks></MyTasks>,
+            element:
+               <PrivateRoute>
+                  <MyTasks></MyTasks>
+               </PrivateRoute>,
          },
          {
             path: "/completed-tasks",
-            element: <CompletedTasks></CompletedTasks>,
+            element:
+               <PrivateRoute>
+                  <CompletedTask></CompletedTask>
+               </PrivateRoute>,
          },
-         {
-            path: "/starred-tasks",
-            element: <StarredTasks></StarredTasks>,
-         },
+         // {
+         //    path: "/starred-tasks",
+         //    element:
+         //       <PrivateRoute>
+         //          <StarredTasks></StarredTasks>
+         //       </PrivateRoute>,
+         // },
          {
             path: '/update-task/:id',
             loader: ({ params }) => fetch(`http://localhost:5000/task/${params.id}`),
